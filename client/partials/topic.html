@@ -1,0 +1,29 @@
+<a href="#!/dashboard">Dashboard</a>
+<a href="#!/">Logout</a>
+
+<p><a href="#!/user/{{topic._user._id}}">{{topic._user.name}}</a> posted a topic:</p>
+<h3>{{topic.topic}}</h6>
+<p>Description: {{topic.description}}</p>
+
+Post your answer here..
+<form ng-submit="postAnswer()" ng-model="newAnswer">
+  <input type="text" ng-model="newAnswer.text">
+  <input type="submit" value="Answer This">
+</form>
+
+<hr>
+<ul ng-repeat="answer in topic.answers">
+  <p><a href="#!/user/{{answer._user._id}}">{{answer._user.name}}:</a>{{answer.answer}}</p>
+<br>
+  <button>Like</button><button>Dislike</button>
+
+
+
+
+  <li ng-repeat="comment in comments"><a href="#!/user/{{user._id}}">{{user.name}}:</a>{{comment.comment}}</li>
+  <form ng-submit="postComment()" ng-model="newComment">
+    <input type="text" ng-model="newComment.text">
+    <input type="submit" value="Comment">
+  </form>
+  <hr>
+</ul>

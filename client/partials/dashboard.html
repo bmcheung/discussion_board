@@ -1,0 +1,36 @@
+<h3>Welcome, {{user.name}}</h3>
+<input type="text" ng-model="filterBy">
+<button ng-click="search(filterBy)">Search</button>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Topic</th>
+    <th>User Name</th>
+    <th>Posts</th>
+  </tr>
+  <tr ng-repeat="topic in topics">
+    <td>{{topic.category}}</td>
+    <td><a href="#!/topic/{{topic._id}}">{{topic.topic}}</a></td>
+    <td><a href="#!/user/{{topic._user._id}}">{{topic._user.name}}</a></td>
+    <td>{{topic.answers.length}}</td>
+  </tr>
+</table>
+
+
+<h4>Add a new Topic</h4>
+<form ng-submit="submit()" ng-model="newTopic">
+  Topic:<input type="text" ng-model="newTopic.topic">
+  <br>
+  Description: <input type="text" ng-model="newTopic.description">
+  <br>
+  Category <select name="singleSelect" ng-model="newTopic.category">
+    <option value="">---Please Select---</option>
+    <option value="MySQL">MySQL</option>
+    <option value="UX">UX</option>
+    <option value="HTML">HTML</option>
+    <option value="Ruby on Rails">Ruby on Rails</option>
+    <option value="Web Development">Web Development</option>
+  </select>
+  <input type="submit" name="" value="Submit">
+</form>
